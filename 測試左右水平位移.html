@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            animation-duration: 3s;
+            animation-name: slidein;
+            /* animation-iteration-count: infinite; */
+            /*  infinite永久循環 */
+
+        }
+
+        h3 {
+            text-align: center;
+            font-weight: bold;
+            animation-duration: 3s;
+            animation-name: right;
+
+
+        }
+
+
+        @keyframes slidein {
+            from {
+                transform: translateX(700px);
+               
+            }
+
+            to {
+                transform: translateX(0px);
+                
+            }
+        }
+
+            @keyframes right {
+                from {
+                    transform: translateX(-700px);
+                    
+                }
+
+                to {
+                    transform: translateX(0px);
+                   
+                }
+            }
+    </style>
+</head>
+
+<body>
+    <h2>安安</h2>
+    <h3>安安</h3>
+
+
+</body>
+
+</html>

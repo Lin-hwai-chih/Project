@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIEN CHIN HOTEL</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <style>
+    * {
+      border: 1px solid #ccc;
+      margin: 0;
+    }
+
+    .wrap {
+      width: 100%;
+      height: 600px;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .img-wrap {
+      width: 4000px;
+      height: 400px;
+      position: absolute;
+      left: 0;
+      transition: .5s;
+
+    }
+
+    .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* background-size: cover; */
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 0;
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+
+    }
+
+    .slider-dots li {
+      width: 40px;
+      height: 10px;
+      margin: 0 4px;
+      border: 1px solid #fff;
+      border-radius: 15%;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="wrap">
+      <ul class="list-unstyled d-flex img-wrap">
+        <li><img src="./天津大飯店/修過圖的大廳背景.jpg" alt=""></img></li>
+        <li><img src="./天津大飯店/大廳旁.jpg" alt=""></img></li>
+        <li><img src="./天津大飯店/大廳旁之一.jpg" alt=""></img></li>
+        <li><img src="./天津大飯店/大廳外.jpg" alt=""></img></li>
+        <li><img src="./天津大飯店/食物.jpg" alt=""></img></li>
+      </ul>
+      <ul class="slider-dots">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script>
+    // console.log(2 * -800+ 'px');以上只是算數公式
+
+    //宣告一個變數來儲存現在的頁數
+    //作用域 Scope 全域變數所有的Script
+    //初始值為零
+    let page = 0;
+    //page從0開始跑
+    $('.slider-dots li').eq(0).css('background', '#fff').siblings().css('background', 'transparent');
+    //eq(代表圖片的順序)
+
+
+
+
+
+    $('.slider-dots li').hover(function () {
+      page = $(this).index();
+
+
+
+      console.log('hi', $(this));
+      console.log($(this).index());
+
+      //$(this).index()此為變數，0 1 2 3
+      //index()為索引值，跑迴圈是第幾個
+
+      $(this).css('background', '#fff').siblings().css('background', 'transparent');
+
+      // transparent更換圖片
+      //siblings()除了點到他之外都不要有出現白色的底圖
+
+      //$(this) 代名詞 = 被 hover 的 li
+      //this 此為JS的寫法
+      $('.img-wrap').css('left', $(this).index() * -800 + 'px');
+      //$(this).index()此為宣告變數
+
+
+    })
+    // $('.slider-dots li').mouseleave(function () {
+    //     console.log($(this));
+    //     $(this).css('background', 'transparent');
+
+    // })
+    //以上程式碼為滑鼠離開時，指示標會不見
+
+    $('li').click(function () {
+      console.log($(this).index());
+    })
+
+    //js es6 的 Function寫法，俗稱箭頭函式
+    setInterval(() => {
+      page = page + 1;
+      //page等於字串
+
+      if (page > 4) {
+        page = 0;
+      }
+      // //或是if(page >= 5){
+      //     page=0 ;
+      // }
+
+      $('.img-wrap').css('left', page * -800 + 'px');
+      console.log('page=', page);
+      $('.slider-dots li').eq(page).css('background', '#fff').siblings().css('background', 'transparent');
+
+
+    }, 2000);
+    //1000毫秒=1秒
+    //interval叫區間
+    //() =>  = function ()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
